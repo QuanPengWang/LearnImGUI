@@ -1,0 +1,12 @@
+FILE(GLOB ProjectCases ${CMAKE_CURRENT_SOURCE_DIR}/*)
+
+foreach(cases ${ProjectCases})
+  file(RELATIVE_PATH caseName ${CMAKE_CURRENT_SOURCE_DIR} ${cases})
+  if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${caseName}/CMakeLists.txt)
+    option(Cases_${caseName} "Build ${caseName} Case" ON)
+    if(Cases_${caseName})
+      add_subdirectory(${caseName})
+      set_property(TARGET ${caseName} PROPERTY FOLDER "cases")
+    endif()
+  endif()
+endforeach()

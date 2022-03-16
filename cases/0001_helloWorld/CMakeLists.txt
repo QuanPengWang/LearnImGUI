@@ -1,0 +1,47 @@
+project(0001_helloWorld)
+
+INCLUDE_DIRECTORIES(
+  ${CMAKE_CURRENT_SOURCE_DIR}
+  ${CMAKE_CURRENT_BINARY_DIR}
+  ${CMAKE_SOURCE_DIR}/thirdParty/imgui
+  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/backends
+  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/examples/libs/glfw/include
+)
+
+LINK_DIRECTORIES(
+  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/examples/libs/glfw/lib-vc2010-64/
+)
+
+set(header_files
+)
+
+set(source_files
+  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui.cpp
+  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui_demo.cpp
+  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui_draw.cpp
+  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui_tables.cpp
+  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui_widgets.cpp
+  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/backends/imgui_impl_glfw.cpp
+  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/backends/imgui_impl_opengl3.cpp
+  main.cpp
+)
+
+add_executable(${PROJECT_NAME}
+  ${header_files}
+  ${source_files}
+)
+
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+  #if(NOT show_console_debug)
+    #set_property(TARGET ${PROJECT_NAME} PROPERTY WIN32_EXECUTABLE true)
+  #endif()
+endif()
+
+target_link_libraries(${PROJECT_NAME}
+  opengl32
+  glfw3
+)
+
+if(MSVC)
+	set_property(TARGET ${PROJECT_NAME} APPEND PROPERTY LINK_FLAGS "/NODEFAULTLIB:MSVCRT")
+endif()
