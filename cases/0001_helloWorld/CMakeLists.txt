@@ -16,13 +16,13 @@ set(header_files
 )
 
 set(source_files
-  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui.cpp
-  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui_demo.cpp
-  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui_draw.cpp
-  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui_tables.cpp
-  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui_widgets.cpp
-  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/backends/imgui_impl_glfw.cpp
-  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/backends/imgui_impl_opengl3.cpp
+  #${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui.cpp
+  #${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui_demo.cpp
+  #${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui_draw.cpp
+  #${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui_tables.cpp
+  #${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui_widgets.cpp
+  #${CMAKE_SOURCE_DIR}/thirdParty/imgui/backends/imgui_impl_glfw.cpp
+  #${CMAKE_SOURCE_DIR}/thirdParty/imgui/backends/imgui_impl_opengl3.cpp
   main.cpp
 )
 
@@ -40,6 +40,7 @@ endif()
 target_link_libraries(${PROJECT_NAME}
   opengl32
   glfw3
+  imgui
 )
 
 if(MSVC)

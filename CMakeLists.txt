@@ -7,4 +7,5 @@ add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
 
 set_property (GLOBAL PROPERTY USE_FOLDERS ON)
 
+add_subdirectory(library)
 add_subdirectory(cases)
