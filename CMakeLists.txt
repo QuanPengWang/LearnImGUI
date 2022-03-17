@@ -9,3 +9,11 @@ set_property (GLOBAL PROPERTY USE_FOLDERS ON)
 
 add_subdirectory(library)
 add_subdirectory(cases)
+
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+  if(EXISTS $ENV{HOMEPATH}/Desktop/${PROJECT_NAME}.bat)
+  else()
+    set(ProjectFile ${CMAKE_BINARY_DIR}/${PROJECT_NAME}.sln)
+    configure_file(desktopBat.in $ENV{HOMEPATH}/Desktop/${PROJECT_NAME}.bat)
+  endif()
+endif()
