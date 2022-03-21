@@ -1,9 +1,9 @@
-#include "mainWindow.h"
+#include "gameWindow.h"
 
 int main(int argc, char* argv[])
 {
-	mainWindow mainWindow;
-	mainWindow.Run();
+	gameWindow game;
+	game.Run();
 
 	return 0;
 }

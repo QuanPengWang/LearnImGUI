@@ -14,10 +14,12 @@ LINK_DIRECTORIES(
 
 set(header_files
   mainWindow.h
+  gameWindow.h
 )
 
 set(source_files
   mainWindow.cpp
+  gameWindow.cpp
   main.cpp
 )
 
