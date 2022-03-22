@@ -17,3 +17,13 @@ std::string person::GetName()
 {
 	return m_name;
 }
+
+void person::SetEmotion(const person_emotion& emotion)
+{
+	m_emotion = emotion;
+}
+
+person_emotion person::GetEmotion()
+{
+	return m_emotion;
+}

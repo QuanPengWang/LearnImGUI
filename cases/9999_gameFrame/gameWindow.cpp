@@ -107,7 +107,14 @@ bool gameWindow::Run()
                 ImGui::Text(npcAction.c_str());
                 ImGui::SameLine();
                 ImGui::Text(u8"吗？");
+            }
 
+            person_emotion emotion = m_npcs["guide"]->GetEmotion();
+            if(0 != emotion.id)
+            {
+                ImGui::Text(m_npcs["guide"]->GetName().c_str());
+                ImGui::SameLine();
+                ImGui::Text(emotion.m_description.c_str());
             }
 
             ImGui::End();

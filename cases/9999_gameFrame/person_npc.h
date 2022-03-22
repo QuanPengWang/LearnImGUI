@@ -13,5 +13,7 @@ public:
 	std::string GetAction();
 
 private:
+	int m_doActionCount;
 	std::string m_actionTest;
+
 };
