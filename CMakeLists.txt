@@ -9,6 +9,13 @@ endif()
 
 set_property (GLOBAL PROPERTY USE_FOLDERS ON)
 
+set(CMAKE_MODULE_PATH
+  ${CMAKE_SOURCE_DIR}/cmake
+  ${CMAKE_MODULE_PATH}
+)
+
+option(WithConsole "Show Console" ON)
+
 add_subdirectory(library)
 add_subdirectory(cases)
 

@@ -3,13 +3,13 @@ project(imgui)
 INCLUDE_DIRECTORIES(
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}
-${CMAKE_SOURCE_DIR}/thirdParty/imgui
+  ${CMAKE_SOURCE_DIR}/thirdParty/imgui
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui/backends
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui/examples/libs/glfw/include
 )
 
 LINK_DIRECTORIES(
-${CMAKE_SOURCE_DIR}/thirdParty/imgui/examples/libs/glfw/lib-vc2010-64/
+  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/examples/libs/glfw/lib-vc2010-64/
 )
 
 set(header_files
@@ -18,7 +18,7 @@ set(header_files
 )
 
 set(source_files
-${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui.cpp
+  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui.cpp
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui_demo.cpp
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui_draw.cpp
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui/imgui_tables.cpp
@@ -44,5 +44,5 @@ target_link_libraries(${PROJECT_NAME}
 )
 
 if(MSVC)
-	set_property(TARGET ${PROJECT_NAME} APPEND PROPERTY LINK_FLAGS "/NODEFAULTLIB:MSVCRT")
+	#set_property(TARGET ${PROJECT_NAME} APPEND PROPERTY LINK_FLAGS "/NODEFAULTLIB:MSVCRT")
 endif()

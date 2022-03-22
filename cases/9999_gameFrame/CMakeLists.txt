@@ -28,18 +28,17 @@ add_executable(${PROJECT_NAME}
   ${source_files}
 )
 
-if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
-  #if(NOT show_console_debug)
-    #set_property(TARGET ${PROJECT_NAME} PROPERTY WIN32_EXECUTABLE true)
-  #endif()
-endif()
-
 target_link_libraries(${PROJECT_NAME}
   opengl32
   glfw3
   imgui
 )
 
-if(MSVC)
-	set_property(TARGET ${PROJECT_NAME} APPEND PROPERTY LINK_FLAGS "/NODEFAULTLIB:MSVCRT")
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+  if(WithConsole)
+    set_property(TARGET ${PROJECT_NAME} PROPERTY WIN32_EXECUTABLE false)
+  else()
+    set_property(TARGET ${PROJECT_NAME} PROPERTY WIN32_EXECUTABLE true)
+    set_property(TARGET ${PROJECT_NAME} APPEND PROPERTY LINK_FLAGS "/entry:mainCRTStartup")
+  endif()
 endif()
