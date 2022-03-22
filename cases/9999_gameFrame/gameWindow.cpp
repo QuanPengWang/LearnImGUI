@@ -66,6 +66,7 @@ bool gameWindow::Run()
 
     // Setup Dear ImGui style
     ImGui::StyleColorsDark();
+	//ImGui::StyleColorsLight();
 
     // Setup Platform/Renderer backends
     ImGui_ImplGlfw_InitForOpenGL(window, true);
@@ -90,10 +91,11 @@ bool gameWindow::Run()
         {
             ImGui::SetNextWindowPos(ImVec2(0, 0));
             ImGui::SetNextWindowSize(ImVec2(windowWidth, windowHeight - 400), ImGuiCond_Always);
+            ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.0f, 0.0f, 0.0f, 1.0f));
 
             ImGui::Begin(u8"显示窗口", nullptr, 
                 ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
-            //ImGui::Text(u8"游戏主窗口");
+
             ImGui::Text(m_npcs["guide"]->GetWord().c_str());
             ImGui::Text(u8"我是");
             ImGui::SameLine();
@@ -117,10 +119,12 @@ bool gameWindow::Run()
                 ImGui::Text(emotion.m_description.c_str());
             }
 
+            ImGui::PopStyleColor();
             ImGui::End();
         }
 
         {
+            ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.0f, 0.0f, 0.0f, 1.0f));
             ImGui::SetNextWindowPos(ImVec2(0, windowHeight - 400));
             ImGui::SetNextWindowSize(ImVec2(windowWidth, 400), ImGuiCond_Always);
 
@@ -128,26 +132,38 @@ bool gameWindow::Run()
                 ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
             //ImGui::Text(u8"游戏操控窗口");
 
-            if(ImGui::Button(u8"前进"))
+            ImGuiWindow* button = nullptr;
+
+            button = ImGui::GetCurrentWindow();
+            button->DC.CursorPos.x = windowWidth - 100;
+            if(ImGui::Button(u8"前进", ImVec2(100, 30)))
             {
+                //SetCursorPos(windowWidth - 100, 0);
                 m_npcs["guide"]->DoAction(u8"前进");
             }
 
-            if (ImGui::Button(u8"后退"))
+            button = ImGui::GetCurrentWindow();
+            button->DC.CursorPos.x = windowWidth - 100;
+            if (ImGui::Button(u8"后退", ImVec2(100, 30)))
             {
                 m_npcs["guide"]->DoAction(u8"后退");
             }
 
-            if (ImGui::Button(u8"左转"))
+            button = ImGui::GetCurrentWindow();
+            button->DC.CursorPos.x = windowWidth - 100;
+            if (ImGui::Button(u8"左转", ImVec2(100, 30)))
             {
                 m_npcs["guide"]->DoAction(u8"左转");
             }
 
-            if (ImGui::Button(u8"右转"))
+            button = ImGui::GetCurrentWindow();
+            button->DC.CursorPos.x = windowWidth - 100;
+            if (ImGui::Button(u8"右转", ImVec2(100, 30)))
             {
                 m_npcs["guide"]->DoAction(u8"右转");
             }
 
+            ImGui::PopStyleColor();
             ImGui::End();
         }
 
