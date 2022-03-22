@@ -16,6 +16,10 @@ set(CMAKE_MODULE_PATH
 
 option(WithConsole "Show Console" ON)
 
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Output)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Output)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Output)
+
 add_subdirectory(library)
 add_subdirectory(cases)
 

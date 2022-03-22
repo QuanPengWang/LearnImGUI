@@ -27,22 +27,12 @@ set(source_files
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui/backends/imgui_impl_opengl3.cpp
 )
 
-add_library(${PROJECT_NAME}
+add_library(${PROJECT_NAME} 
   ${header_files}
   ${source_files}
 )
-
-if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
-  #if(NOT show_console_debug)
-    #set_property(TARGET ${PROJECT_NAME} PROPERTY WIN32_EXECUTABLE true)
-  #endif()
-endif()
 
 target_link_libraries(${PROJECT_NAME}
   opengl32
   glfw3
 )
-
-if(MSVC)
-	#set_property(TARGET ${PROJECT_NAME} APPEND PROPERTY LINK_FLAGS "/NODEFAULTLIB:MSVCRT")
-endif()
