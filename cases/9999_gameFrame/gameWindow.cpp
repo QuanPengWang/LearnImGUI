@@ -9,8 +9,11 @@
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
 #include <imgui_impl_opengl3_loader.h>
+#include <iostream>
 
 #include <GLFW/glfw3.h> // Will drag system OpenGL headers
+
+#include "person_npc.h"
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1900) && !defined(IMGUI_DISABLE_WIN32_FUNCTIONS)
 #pragma comment(lib, "legacy_stdio_definitions")
@@ -18,7 +21,9 @@
 
 gameWindow::gameWindow()
 {
-
+    person_npc* guideNPC = new person_npc;
+    guideNPC->SetName(u8"游戏初始向导");
+    m_npcs["guide"] = guideNPC;
 }
 
 gameWindow::~gameWindow()
@@ -88,7 +93,22 @@ bool gameWindow::Run()
 
             ImGui::Begin(u8"显示窗口", nullptr, 
                 ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
-            ImGui::Text(u8"游戏主窗口");
+            //ImGui::Text(u8"游戏主窗口");
+            ImGui::Text(m_npcs["guide"]->GetWord().c_str());
+            ImGui::Text(u8"我是");
+            ImGui::SameLine();
+            ImGui::Text(m_npcs["guide"]->GetName().c_str());
+
+            std::string npcAction = m_npcs["guide"]->GetAction();
+            if(!npcAction.empty())
+            {
+                ImGui::Text(u8"你是让我");
+                ImGui::SameLine();
+                ImGui::Text(npcAction.c_str());
+                ImGui::SameLine();
+                ImGui::Text(u8"吗？");
+
+            }
 
             ImGui::End();
         }
@@ -99,7 +119,27 @@ bool gameWindow::Run()
 
             ImGui::Begin(u8"操控窗口", nullptr, 
                 ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
-            ImGui::Text(u8"游戏操控窗口");
+            //ImGui::Text(u8"游戏操控窗口");
+
+            if(ImGui::Button(u8"前进"))
+            {
+                m_npcs["guide"]->DoAction(u8"前进");
+            }
+
+            if (ImGui::Button(u8"后退"))
+            {
+                m_npcs["guide"]->DoAction(u8"后退");
+            }
+
+            if (ImGui::Button(u8"左转"))
+            {
+                m_npcs["guide"]->DoAction(u8"左转");
+            }
+
+            if (ImGui::Button(u8"右转"))
+            {
+                m_npcs["guide"]->DoAction(u8"右转");
+            }
 
             ImGui::End();
         }

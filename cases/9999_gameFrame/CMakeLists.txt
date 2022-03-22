@@ -13,12 +13,16 @@ LINK_DIRECTORIES(
 )
 
 set(header_files
-  mainWindow.h
+  baseObject.h
+  person.h
+  person_npc.h
   gameWindow.h
 )
 
 set(source_files
-  mainWindow.cpp
+  baseObject.cpp
+  person.cpp
+  person_npc.cpp
   gameWindow.cpp
   main.cpp
 )
