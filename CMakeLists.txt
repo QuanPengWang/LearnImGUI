@@ -1,9 +1,11 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(LearnImGUI VERSION 1.0.0)
 
-# 使用 utf-8 编码
-add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
-add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+  # 使用 utf-8 编码
+  add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
+  add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
+endif()
 
 set_property (GLOBAL PROPERTY USE_FOLDERS ON)
 

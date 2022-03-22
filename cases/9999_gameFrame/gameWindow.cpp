@@ -66,12 +66,9 @@ bool gameWindow::Run()
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(glsl_version);
 
-    //io.Fonts->AddFontFromFileTTF("./font/simhei.ttf", 13.0f,
-    //    nullptr, io.Fonts->GetGlyphRangesChineseSimplifiedCommon());
-
-    // just now ,use windows system font 
-    io.Fonts->AddFontFromFileTTF("c:/windows/fonts/simhei.ttf", 13.0f,
-        nullptr, io.Fonts->GetGlyphRangesChineseSimplifiedCommon());
+    // GetGlyphRangesChineseSimplifiedCommon 加载的中文字符集不全
+    io.Fonts->AddFontFromFileTTF("c:/windows/fonts/simhei.TTF", 18.0f,
+        nullptr, io.Fonts->GetGlyphRangesChineseFull());
 
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
@@ -86,14 +83,23 @@ bool gameWindow::Run()
         ImGui::NewFrame();
 
         {
-            static float f = 0.0f;
-            static int counter = 0;
-
             ImGui::SetNextWindowPos(ImVec2(0, 0));
-            ImGui::SetNextWindowSize(ImVec2(windowWidth, windowHeight));
+            ImGui::SetNextWindowSize(ImVec2(windowWidth, windowHeight - 400), ImGuiCond_Always);
 
-            ImGui::Begin(u8"游戏 ！", nullptr, ImGuiWindowFlags_NoTitleBar);
+            ImGui::Begin(u8"显示窗口", nullptr, 
+                ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
             ImGui::Text(u8"游戏主窗口");
+
+            ImGui::End();
+        }
+
+        {
+            ImGui::SetNextWindowPos(ImVec2(0, windowHeight - 400));
+            ImGui::SetNextWindowSize(ImVec2(windowWidth, 400), ImGuiCond_Always);
+
+            ImGui::Begin(u8"操控窗口", nullptr, 
+                ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
+            ImGui::Text(u8"游戏操控窗口");
 
             ImGui::End();
         }
