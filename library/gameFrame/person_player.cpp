@@ -1,21 +1,22 @@
-#include "person_npc.h"
-#include "emotion.h"
+#include "person_player.h"
+
 #include "action.h"
+#include "emotion.h"
 
-person_npc::person_npc()
+person_player::person_player()
 {
 }
 
-person_npc::~person_npc()
+person_player::~person_player()
 {
 }
 
-std::string person_npc::GetWord()
+std::string person_player::GetWord()
 {
 	return u8"你好 !";
 }
 
-void person_npc::DoAction(action* act)
+void person_player::DoAction(action* act)
 {
 	//m_actionTest = action;
 	//m_doActionCount++;
@@ -35,21 +36,19 @@ void person_npc::DoAction(action* act)
 	if (this != sub && this != obj)
 		return;
 
-	if (this == obj)
+	if(this == obj)
 	{
-		// NPC被动
-		act->DoAction();
-		m_actions[sub] = act;
+		// 玩家被动
+
 	}
-	else if (this == sub)
+	else if(this == sub)
 	{
-		// NPC主动
-		act->DoAction();
-		m_actions[obj] = act;
+		// 玩家主动
+
 	}
 }
 
-action* person_npc::GetAction(baseObject* obj)
+action* person_player::GetAction(baseObject* obj)
 {
 	if (m_actions.find(obj) != m_actions.end())
 		return m_actions[obj];

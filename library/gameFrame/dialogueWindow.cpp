@@ -2,13 +2,10 @@
 #include "personDefine.h"
 #include "person.h"
 #include "person_npc.h"
-
+#include "emotion.h"
 #include <imgui.h>
 
-
-
 dialogueWindow::dialogueWindow()
-	:m_person(nullptr)
 {
 }
 
@@ -16,14 +13,32 @@ dialogueWindow::~dialogueWindow()
 {
 }
 
-void dialogueWindow::SetPerson(person* p)
+void dialogueWindow::SetPerson(const std::string& n, person* p)
 {
-    m_person = p;
+    if("player" != n)
+    {
+        if (m_persons.find(n) == m_persons.end())
+            m_persons[n] = p;
+    }
+    else
+    {
+        m_player = p;
+    }
 }
 
-person* dialogueWindow::GetPerson()
+person* dialogueWindow::GetPerson(const std::string& n)
 {
-    return m_person;
+    if("player" != n)
+    {
+        if (m_persons.find(n) != m_persons.end())
+            return m_persons[n];
+    }
+    else
+    {
+        return m_player;
+    }
+
+    return nullptr;
 }
 
 void dialogueWindow::Render()
@@ -36,32 +51,37 @@ void dialogueWindow::Render()
     ImGui::Begin(u8"显示窗口", nullptr,
         ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
 
-    person_npc* npc = static_cast<person_npc*>(m_person);
-    if(npc)
+    for(auto person = m_persons.begin(); person != m_persons.end(); person++)
     {
-        ImGui::Text(npc->GetWord().c_str());
-        ImGui::Text(u8"我是");
-        ImGui::SameLine();
-        ImGui::Text(npc->GetName().c_str());
-
-        std::string npcAction = npc->GetAction();
-        if (!npcAction.empty())
+        person_npc* npc = static_cast<person_npc*>(person->second);
+        if (npc)
         {
-            ImGui::Text(u8"你是让我");
+            ImGui::Text(npc->GetWord().c_str());
+            ImGui::Text(u8"我是");
             ImGui::SameLine();
-            ImGui::Text(npcAction.c_str());
-            ImGui::SameLine();
-            ImGui::Text(u8"吗？");
-        }
-
-        emotion emotion = npc->GetEmotion();
-        if (0 != emotion.id)
-        {
             ImGui::Text(npc->GetName().c_str());
-            ImGui::SameLine();
-            ImGui::Text(emotion.m_description.c_str());
+
+            //std::string npcAction = npc->GetAction();
+            //if (!npcAction.empty())
+            //{
+            //    ImGui::Text(u8"你是让我");
+            //    ImGui::SameLine();
+            //    ImGui::Text(npcAction.c_str());
+            //    ImGui::SameLine();
+            //    ImGui::Text(u8"吗？");
+            //}
+
+            emotion* emotion = npc->GetEmotion();
+            if (emotion && 0 != emotion->GetValue())
+            {
+                ImGui::Text(npc->GetName().c_str());
+                ImGui::SameLine();
+                ImGui::Text(emotion->GetDescription().c_str());
+            }
         }
     }
+
+    
 
     ImGui::PopStyleColor();
     ImGui::End();

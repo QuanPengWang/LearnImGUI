@@ -5,13 +5,16 @@
 #include <map>
 
 class action;
-class GAMEFRAME_EXPORT person_npc : public person
+class GAMEFRAME_EXPORT person_player : public person
 {
 public:
-	person_npc();
-	~person_npc();
+	person_player();
+	~person_player();
 
 	std::string GetWord() override;
+
+	//void DoAction(const std::string& action);
+	//std::string GetAction();
 
 	void DoAction(action* act);
 	action* GetAction(baseObject* obj);

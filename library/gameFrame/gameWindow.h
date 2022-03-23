@@ -24,6 +24,7 @@ private:
 	int m_window_width;
 	int m_window_height;
 
+	person* m_player;
 	std::map<std::string, person*> m_npcs;
 	std::vector<baseWindow*> m_windows;
 

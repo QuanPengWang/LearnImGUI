@@ -20,22 +20,30 @@ set(header_files
   personDefine.h
   person.h
   person_npc.h
+  person_player.h
   gameWindow.h
   baseWindow.h
   dialogueWindow.h
   controlWindow.h
   gameApplication.h
+  emotion.h
+  action.h
+  action_greetings.h
 )
 
 set(source_files
   baseObject.cpp
   person.cpp
   person_npc.cpp
+  person_player.cpp
   gameWindow.cpp
   baseWindow.cpp
   dialogueWindow.cpp
   controlWindow.cpp
   gameApplication.cpp
+  emotion.cpp
+  action.cpp
+  action_greetings.cpp
 )
 
 add_library(${PROJECT_NAME} SHARED

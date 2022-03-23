@@ -1,6 +1,8 @@
 #include "person.h"
+#include "emotion.h"
 
 person::person()
+	:m_emotion(new emotion)
 {
 }
 
@@ -18,12 +20,12 @@ std::string person::GetName()
 	return m_name;
 }
 
-void person::SetEmotion(const emotion& emotion)
+void person::SetEmotion(emotion* emotion)
 {
 	m_emotion = emotion;
 }
 
-emotion person::GetEmotion()
+emotion* person::GetEmotion()
 {
 	return m_emotion;
 }

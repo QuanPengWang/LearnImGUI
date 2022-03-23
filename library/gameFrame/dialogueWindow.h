@@ -1,6 +1,10 @@
 #pragma once
+#pragma warning(disable:4251)
 #include "gameFramelibExport.h"
 #include "baseWindow.h"
+
+#include <map>
+#include <string>
 
 class person;
 class GAMEFRAME_EXPORT dialogueWindow : public baseWindow
@@ -9,11 +13,12 @@ public:
 	dialogueWindow();
 	~dialogueWindow();
 
-	void SetPerson(person* p);
-	person* GetPerson();
+	void SetPerson(const std::string& n, person* p);
+	person* GetPerson(const std::string& n);
 
 	void Render() override;
 
 private:
-	person* m_person;
+	person* m_player;
+	std::map<std::string, person*> m_persons;
 };

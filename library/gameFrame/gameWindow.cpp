@@ -18,6 +18,8 @@
 // Will drag system OpenGL headers
 #include <GLFW/glfw3.h> 
 
+#include "person_player.h"
+
 gameWindow::gameWindow()
 	:m_glfw_initFlag(false), m_window(nullptr)
 {
@@ -69,14 +71,17 @@ gameWindow::gameWindow()
     guideNPC->SetName(u8"游戏初始向导");
     m_npcs["guide"] = guideNPC;
 
+    m_player = new person_player;
+    m_player->SetName(u8"玩家");
+
     dialogueWindow* dWindow = new dialogueWindow;
-    dWindow->SetPerson(guideNPC);
+    dWindow->SetPerson("guide", guideNPC);
     dWindow->SetWindowPosition(0, 0);
     dWindow->SetWindowSize(m_window_width, m_window_height - 400);
     m_windows.push_back(dWindow);
 
     controlWindow* cWindow = new controlWindow;
-    cWindow->SetPerson(guideNPC);
+    cWindow->SetPerson("guide", guideNPC);
     cWindow->SetWindowPosition(0, m_window_height - 400);
     cWindow->SetWindowSize(m_window_width,  400);
     m_windows.push_back(cWindow);
