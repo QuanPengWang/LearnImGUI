@@ -38,17 +38,17 @@ bool action_greetings::DoAction()
 				if(newEmValue < 0 && -10 < newEmValue)
 				{
 					em->SetName(u8"不耐烦");
-					em->SetName(u8"看起来略微有点烦躁");
+					em->SetDescription(u8"看起来略微有点烦躁");
 				}
 				else if(newEmValue <= -10 && -20 < newEmValue)
 				{
 					em->SetName(u8"烦躁");
-					em->SetName(u8"看起来很烦躁");
+					em->SetDescription(u8"看起来很烦躁");
 				}
 				else if(newEmValue <= -20)
 				{
 					em->SetName(u8"生气");
-					em->SetName(u8"看起来生气了");
+					em->SetDescription(u8"看起来生气了");
 				}
 
 			}

@@ -61,16 +61,6 @@ void dialogueWindow::Render()
             ImGui::SameLine();
             ImGui::Text(npc->GetName().c_str());
 
-            //std::string npcAction = npc->GetAction();
-            //if (!npcAction.empty())
-            //{
-            //    ImGui::Text(u8"你是让我");
-            //    ImGui::SameLine();
-            //    ImGui::Text(npcAction.c_str());
-            //    ImGui::SameLine();
-            //    ImGui::Text(u8"吗？");
-            //}
-
             emotion* emotion = npc->GetEmotion();
             if (emotion && 0 != emotion->GetValue())
             {
