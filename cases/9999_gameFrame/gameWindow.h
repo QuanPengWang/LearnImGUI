@@ -1,10 +1,12 @@
 #pragma once
 #include <map>
+#include <vector>
 #include <string>
 
-//#include "person_npc.h"
-
-class person_npc;
+class person;
+class baseWindow;
+struct GLFWwindow;
+struct ImVec4;
 class gameWindow
 {
 public:
@@ -14,5 +16,14 @@ public:
 	bool Run();
 
 private:
-	std::map<std::string, person_npc*> m_npcs;
+	bool m_glfw_initFlag;
+	GLFWwindow* m_window;
+
+	int m_window_width;
+	int m_window_height;
+
+	std::map<std::string, person*> m_npcs;
+	std::vector<baseWindow*> m_windows;
+
+	ImVec4* m_clear_color;
 };

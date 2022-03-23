@@ -18,6 +18,9 @@ set(header_files
   person.h
   person_npc.h
   gameWindow.h
+  baseWindow.h
+  dialogueWindow.h
+  controlWindow.h
 )
 
 set(source_files
@@ -25,6 +28,9 @@ set(source_files
   person.cpp
   person_npc.cpp
   gameWindow.cpp
+  baseWindow.cpp
+  dialogueWindow.cpp
+  controlWindow.cpp
   main.cpp
 )
 
