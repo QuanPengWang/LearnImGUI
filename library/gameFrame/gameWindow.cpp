@@ -1,5 +1,4 @@
 #include "gameWindow.h"
-
 #include <imgui.h>
 #include <imconfig.h>
 #include <imgui_internal.h>
@@ -11,9 +10,11 @@
 // Will drag system OpenGL headers
 #include <GLFW/glfw3.h> 
 
+#include "gameApplication.h"
 #include "controlWindow.h"
 #include "dialogueWindow.h"
 #include "person_npc.h"
+
 
 //#if defined(_MSC_VER) && (_MSC_VER >= 1900) && !defined(IMGUI_DISABLE_WIN32_FUNCTIONS)
 //  #pragma comment(lib, "legacy_stdio_definitions")
