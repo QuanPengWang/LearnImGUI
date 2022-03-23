@@ -1,9 +1,10 @@
 #pragma once
+#include "gameFramelibExport.h"
 #include <string>
 #include "baseObject.h"
 #include "personDefine.h"
 
-class person : public baseObject
+class GAMEFRAME_EXPORT person : public baseObject
 {
 public:
 	person();

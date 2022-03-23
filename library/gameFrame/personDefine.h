@@ -1,7 +1,8 @@
 #pragma once
+#include "gameFramelibExport.h"
 #include <string>
 
-typedef struct person_emotion
+typedef struct GAMEFRAME_EXPORT person_emotion
 {
 	// 整体上来讲，id < 0 ,不好的心情
 	// 0 < id ,好心情

@@ -1,7 +1,8 @@
 #pragma once
+#include "gameFramelibExport.h"
 #include <string>
 
-class baseWindow
+class GAMEFRAME_EXPORT baseWindow
 {
 public:
 	baseWindow();

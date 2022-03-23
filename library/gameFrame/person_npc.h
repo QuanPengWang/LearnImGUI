@@ -1,7 +1,8 @@
 #pragma once
+#include "gameFramelibExport.h"
 #include "person.h"
 
-class person_npc : public person
+class GAMEFRAME_EXPORT person_npc : public person
 {
 public:
 	person_npc();

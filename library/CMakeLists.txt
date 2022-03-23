@@ -6,14 +6,13 @@ foreach(lib ${Project_Libs})
 	if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${lib}/${lib}LibExport.h)
 	else()
 	  set(libExportStr "${libName}_EXPORT")
-	  string(TOUPPER ${libExportStr} VISUAL_EXPORT_DIRECTIVE)
-	  set(VISUALLIB_HEADER_PREFIX ${libName})
-	  string(TOUPPER ${libName} VISUAL_LIBNAME)
-	
-#	  configure_file(
-#        VisualExport.h.in
-#        ${CMAKE_CURRENT_SOURCE_DIR}/${libName}/${libName}libExport.h
-#      )
+	  string(TOUPPER ${libExportStr} LIBRARY_EXPORT_DIRECTIVE)
+	  set(LIBRARY_HEADER_PREFIX ${libName})
+	  string(TOUPPER ${libName} LIBRARY_LIBNAME)
+	  configure_file(
+                 LibraryExport.h.in
+                 ${CMAKE_CURRENT_SOURCE_DIR}/${libName}/${libName}libExport.h
+                 )
 	endif()
 	add_subdirectory(${libName})
 	set_property(TARGET ${libName} PROPERTY FOLDER "libs")

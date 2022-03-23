@@ -1,9 +1,10 @@
 #pragma once
+#include "gameFramelibExport.h"
 #include <vector>
 #include <string>
 
 // virtual class
-class baseObject
+class GAMEFRAME_EXPORT baseObject
 {
 public:
 	baseObject();

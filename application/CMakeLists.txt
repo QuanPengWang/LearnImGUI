@@ -1,0 +1,12 @@
+FILE(GLOB ProjectApplications ${CMAKE_CURRENT_SOURCE_DIR}/*)
+
+foreach(apps ${ProjectApplications})
+  file(RELATIVE_PATH appName ${CMAKE_CURRENT_SOURCE_DIR} ${apps})
+  if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${appName}/CMakeLists.txt)
+    option(Application_${appName} "Build ${appName} Application" ON)
+    if(Application_${appName})
+      add_subdirectory(${appName})
+      set_property(TARGET ${appName} PROPERTY FOLDER "apps")
+    endif()
+  endif()
+endforeach()

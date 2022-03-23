@@ -1,12 +1,13 @@
 #pragma once
+#include "gameFramelibExport.h"
 #include "baseWindow.h"
 
 class person;
-class controlWindow : public baseWindow
+class GAMEFRAME_EXPORT dialogueWindow : public baseWindow
 {
 public:
-	controlWindow();
-	~controlWindow();
+	dialogueWindow();
+	~dialogueWindow();
 
 	void SetPerson(person* p);
 	person* GetPerson();

@@ -1,4 +1,5 @@
 #pragma once
+#include "gameFramelibExport.h"
 #include <map>
 #include <vector>
 #include <string>
@@ -7,7 +8,7 @@ class person;
 class baseWindow;
 struct GLFWwindow;
 struct ImVec4;
-class gameWindow
+class GAMEFRAME_EXPORT gameWindow
 {
 public:
 	gameWindow();

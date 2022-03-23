@@ -1,36 +1,19 @@
-project(9999_gameFrame)
+project(gameDemo)
 
 INCLUDE_DIRECTORIES(
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}
-  ${CMAKE_SOURCE_DIR}/thirdParty/imgui
-  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/backends
-  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/examples/libs/glfw/include
+  ${CMAKE_SOURCE_DIR}/library/gameFrame
 )
 
 LINK_DIRECTORIES(
-  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/examples/libs/glfw/lib-vc2010-64/
+
 )
 
 set(header_files
-  baseObject.h
-  personDefine.h
-  person.h
-  person_npc.h
-  gameWindow.h
-  baseWindow.h
-  dialogueWindow.h
-  controlWindow.h
 )
 
 set(source_files
-  baseObject.cpp
-  person.cpp
-  person_npc.cpp
-  gameWindow.cpp
-  baseWindow.cpp
-  dialogueWindow.cpp
-  controlWindow.cpp
   main.cpp
 )
 
@@ -40,9 +23,7 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
-  opengl32
-  glfw3
-  imgui
+  gameFrame
 )
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")

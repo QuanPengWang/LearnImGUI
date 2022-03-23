@@ -1,0 +1,15 @@
+#ifndef __@LIBRARY_HEADER_PREFIX@Export_h__
+#define __@LIBRARY_HEADER_PREFIX@Export_h__
+
+#  if defined(@LIBRARY_LIBNAME@_EXPORTS)
+#    define @LIBRARY_EXPORT_DIRECTIVE@ __declspec(dllexport)
+#  else
+#    define @LIBRARY_EXPORT_DIRECTIVE@ __declspec(dllimport)
+#  endif
+
+#if !defined(@LIBRARY_EXPORT_DIRECTIVE@)
+#    define @LIBRARY_EXPORT_DIRECTIVE@ __declspec(dllexport)
+#endif
+
+#endif
+
