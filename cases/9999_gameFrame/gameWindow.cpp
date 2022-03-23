@@ -8,15 +8,16 @@
 #include <imgui_impl_opengl3_loader.h>
 #include <iostream>
 
-#include <GLFW/glfw3.h> // Will drag system OpenGL headers
+// Will drag system OpenGL headers
+#include <GLFW/glfw3.h> 
 
 #include "controlWindow.h"
 #include "dialogueWindow.h"
 #include "person_npc.h"
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900) && !defined(IMGUI_DISABLE_WIN32_FUNCTIONS)
-#pragma comment(lib, "legacy_stdio_definitions")
-#endif
+//#if defined(_MSC_VER) && (_MSC_VER >= 1900) && !defined(IMGUI_DISABLE_WIN32_FUNCTIONS)
+//  #pragma comment(lib, "legacy_stdio_definitions")
+//#endif
 
 gameWindow::gameWindow()
 	:m_glfw_initFlag(false), m_window(nullptr)

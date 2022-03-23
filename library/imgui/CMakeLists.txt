@@ -36,3 +36,9 @@ target_link_libraries(${PROJECT_NAME}
   opengl32
   glfw3
 )
+
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+  target_link_libraries(${PROJECT_NAME}
+    legacy_stdio_definitions
+  )
+endif()
