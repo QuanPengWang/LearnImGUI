@@ -1,8 +1,5 @@
 #include "gameWindow.h"
 
-#include "mainWindow.h"
-#include <cstdio>
-
 #include <imgui.h>
 #include <imconfig.h>
 #include <imgui_internal.h>
@@ -101,16 +98,10 @@ bool gameWindow::Run()
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        dialogueWindow* dWindow = static_cast<dialogueWindow*>(m_windows[0]);
-        if(dWindow)
+        for(int i = 0; i < m_windows.size(); i++)
         {
-            dWindow->Render();
-        }
-
-        controlWindow* cWindow = static_cast<controlWindow*>(m_windows[1]);
-        if (cWindow)
-        {
-            cWindow->Render();
+	        if(!m_windows[i]) continue;
+            m_windows[i]->Render();
         }
 
         // Rendering
