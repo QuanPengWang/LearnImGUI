@@ -1,4 +1,5 @@
 #pragma once
+#pragma warning(disable:4251)
 #include "gameFramelibExport.h"
 #include <string>
 #include "baseObject.h"
@@ -13,13 +14,13 @@ public:
 	void SetName(const std::string& name);
 	std::string GetName();
 
-	void SetEmotion(const person_emotion& emotion);
-	person_emotion GetEmotion();
+	void SetEmotion(const emotion& emotion);
+	emotion GetEmotion();
 
 	virtual std::string GetWord() = 0;
 
 protected:
 	std::string m_id;
 	std::string m_name;
-	person_emotion m_emotion;
+	emotion m_emotion;
 };

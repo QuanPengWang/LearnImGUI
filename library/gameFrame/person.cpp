@@ -18,12 +18,12 @@ std::string person::GetName()
 	return m_name;
 }
 
-void person::SetEmotion(const person_emotion& emotion)
+void person::SetEmotion(const emotion& emotion)
 {
 	m_emotion = emotion;
 }
 
-person_emotion person::GetEmotion()
+emotion person::GetEmotion()
 {
 	return m_emotion;
 }

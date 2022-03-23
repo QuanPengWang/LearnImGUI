@@ -54,7 +54,7 @@ void dialogueWindow::Render()
             ImGui::Text(u8"吗？");
         }
 
-        person_emotion emotion = npc->GetEmotion();
+        emotion emotion = npc->GetEmotion();
         if (0 != emotion.id)
         {
             ImGui::Text(npc->GetName().c_str());

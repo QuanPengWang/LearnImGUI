@@ -16,5 +16,4 @@ public:
 private:
 	int m_doActionCount;
 	std::string m_actionTest;
-
 };
