@@ -29,6 +29,7 @@ set(header_files
   emotion.h
   action.h
   action_greetings.h
+  properties.h
 )
 
 set(source_files
@@ -44,6 +45,7 @@ set(source_files
   emotion.cpp
   action.cpp
   action_greetings.cpp
+  properties.cpp
 )
 
 add_library(${PROJECT_NAME} SHARED

@@ -14,8 +14,10 @@ public:
 	void SetID(const std::string& id);
 	std::string GetID();
 
-protected:
+	void SetName(const std::string& name);
+	std::string GetName();
 
 private:
 	std::string m_id;
+	std::string m_name;
 };

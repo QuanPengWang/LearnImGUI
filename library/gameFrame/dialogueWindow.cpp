@@ -5,6 +5,8 @@
 #include "emotion.h"
 #include <imgui.h>
 
+#include "properties.h"
+
 dialogueWindow::dialogueWindow()
 {
 }
@@ -67,6 +69,21 @@ void dialogueWindow::Render()
                 ImGui::Text(npc->GetName().c_str());
                 ImGui::SameLine();
                 ImGui::Text(emotion->GetDescription().c_str());
+
+                if(emotion->GetValue() <= -20)
+                {
+                    std::vector<properties*> bag = npc->GetProperties();
+                    if(1 == bag.size())
+                    {
+                        ImGui::Text(npc->GetName().c_str());
+                        ImGui::SameLine();
+                        ImGui::Text(u8"无奈的看了看自己仅有的");
+                        ImGui::SameLine();
+                        ImGui::Text(bag[0]->GetName().c_str());
+                        ImGui::SameLine();
+                        ImGui::Text(u8"，叹了一口气。");
+                    }
+                }
             }
         }
     }

@@ -17,16 +17,6 @@ std::string person_npc::GetWord()
 
 void person_npc::DoAction(action* act)
 {
-	//m_actionTest = action;
-	//m_doActionCount++;
-
-	//if (10 < m_doActionCount)
-	//{
-	//	m_emotion->SetValue(-1);
-	//	m_emotion->SetName(u8"烦躁");
-	//	m_emotion->SetDescription(u8"看上去略微有一些烦躁。");
-	//}
-
 	if (!act) return;
 
 	baseObject* sub = act->GetSubject();

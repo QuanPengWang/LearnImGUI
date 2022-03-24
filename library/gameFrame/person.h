@@ -3,9 +3,9 @@
 #include "gameFramelibExport.h"
 #include <string>
 #include "baseObject.h"
-#include "personDefine.h"
 
 class emotion;
+class properties;
 class GAMEFRAME_EXPORT person : public baseObject
 {
 public:
@@ -20,8 +20,12 @@ public:
 
 	virtual std::string GetWord() = 0;
 
+	void SetProperties(properties* pro);
+	std::vector<properties*> GetProperties();
+
 protected:
 	std::string m_id;
 	std::string m_name;
 	emotion* m_emotion;
+	std::vector<properties*> m_bag;
 };
