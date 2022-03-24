@@ -71,8 +71,6 @@ void dialogueWindow::Render()
         }
     }
 
-    
-
     ImGui::PopStyleColor();
     ImGui::End();
 }

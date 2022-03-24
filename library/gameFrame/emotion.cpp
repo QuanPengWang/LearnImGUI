@@ -12,6 +12,22 @@ emotion::~emotion()
 void emotion::SetValue(const double& v)
 {
 	m_value = v;
+
+	if (m_value < 0 && -10 < m_value)
+	{
+		SetName(u8"不耐烦");
+		SetDescription(u8"看起来略微有点烦躁");
+	}
+	else if (m_value <= -10 && -20 < m_value)
+	{
+		SetName(u8"烦躁");
+		SetDescription(u8"看起来很烦躁");
+	}
+	else if (m_value <= -20)
+	{
+		SetName(u8"生气");
+		SetDescription(u8"看起来生气了");
+	}
 }
 
 double emotion::GetValue()
