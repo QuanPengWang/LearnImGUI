@@ -62,7 +62,7 @@ void dialogueWindow::Render()
             ImGui::Text(npc->GetName().c_str());
 
             emotion* emotion = npc->GetEmotion();
-            if (emotion && 0 != emotion->GetValue())
+            if (emotion)
             {
                 ImGui::Text(npc->GetName().c_str());
                 ImGui::SameLine();

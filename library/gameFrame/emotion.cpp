@@ -1,7 +1,7 @@
 #include "emotion.h"
 
 emotion::emotion()
-	:m_value(0), m_name(""), m_description("")
+	:m_value(0), m_name(u8"平静"), m_description(u8"看起来很平静的样子")
 {
 }
 
