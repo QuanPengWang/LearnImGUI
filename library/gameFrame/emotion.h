@@ -19,6 +19,9 @@ public:
 	std::string GetDescription();
 
 protected:
+	void CheckEmotion();
+
+protected:
 	// 整体上来讲，id < 0 ,不好的心情
 	// 0 < id ,好心情
 	double m_value;
