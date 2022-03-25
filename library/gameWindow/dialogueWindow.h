@@ -1,17 +1,17 @@
 #pragma once
 #pragma warning(disable:4251)
-#include "gameFramelibExport.h"
+#include "gameWindowlibExport.h"
 #include "baseWindow.h"
 
 #include <map>
 #include <string>
 
 class person;
-class GAMEFRAME_EXPORT controlWindow : public baseWindow
+class GAMEWINDOW_EXPORT dialogueWindow : public baseWindow
 {
 public:
-	controlWindow();
-	~controlWindow();
+	dialogueWindow();
+	~dialogueWindow();
 
 	void SetPerson(const std::string& n, person* p);
 	person* GetPerson(const std::string& n);

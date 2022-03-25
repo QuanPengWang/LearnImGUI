@@ -1,4 +1,4 @@
-project(gameFrame)
+project(gameData)
 
 string(TOUPPER ${PROJECT_NAME} LibraryName)
 add_definitions("-D ${LibraryName}_EXPORTS")
@@ -16,11 +16,25 @@ LINK_DIRECTORIES(
 )
 
 set(header_files
-  gameApplication.h
+  baseObject.h
+  person.h
+  person_npc.h
+  person_player.h
+  emotion.h
+  action.h
+  action_greetings.h
+  properties.h
 )
 
 set(source_files
-  gameApplication.cpp
+  baseObject.cpp
+  person.cpp
+  person_npc.cpp
+  person_player.cpp
+  emotion.cpp
+  action.cpp
+  action_greetings.cpp
+  properties.cpp
 )
 
 add_library(${PROJECT_NAME} SHARED

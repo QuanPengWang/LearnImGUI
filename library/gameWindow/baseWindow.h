@@ -1,9 +1,9 @@
 #pragma once
 #pragma warning(disable:4251)
-#include "gameFramelibExport.h"
+#include "gameWindowlibExport.h"
 #include <string>
 
-class GAMEFRAME_EXPORT baseWindow
+class GAMEWINDOW_EXPORT baseWindow
 {
 public:
 	baseWindow();

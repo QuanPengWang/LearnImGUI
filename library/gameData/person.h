@@ -1,6 +1,6 @@
 #pragma once
 #pragma warning(disable:4251)
-#include "gameFramelibExport.h"
+#include "gameDatalibExport.h"
 #include <string>
 #include <map>
 #include "baseObject.h"
@@ -8,7 +8,7 @@
 class emotion;
 class action;
 class properties;
-class GAMEFRAME_EXPORT person : public baseObject
+class GAMEDATA_EXPORT person : public baseObject
 {
 public:
 	person();

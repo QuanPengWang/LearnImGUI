@@ -1,9 +1,9 @@
 #pragma once
 #pragma warning(disable:4251)
-#include "gameFramelibExport.h"
+#include "gameDatalibExport.h"
 #include "action.h"
 
-class GAMEFRAME_EXPORT action_greetings : public action
+class GAMEDATA_EXPORT action_greetings : public action
 {
 public:
 	action_greetings();

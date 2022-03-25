@@ -1,9 +1,9 @@
 #pragma once
 #pragma warning(disable:4251)
-#include "gameFramelibExport.h"
+#include "gameDatalibExport.h"
 #include "baseObject.h"
 
-class GAMEFRAME_EXPORT emotion : public baseObject
+class GAMEDATA_EXPORT emotion : public baseObject
 {
 public:
 	emotion();

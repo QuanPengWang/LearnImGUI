@@ -1,6 +1,6 @@
 #pragma once
 #pragma warning(disable:4251)
-#include "gameFramelibExport.h"
+#include "gameWindowlibExport.h"
 #include <map>
 #include <vector>
 #include <string>
@@ -9,7 +9,7 @@ class person;
 class baseWindow;
 struct GLFWwindow;
 struct ImVec4;
-class GAMEFRAME_EXPORT gameWindow
+class GAMEWINDOW_EXPORT gameWindow
 {
 public:
 	gameWindow();

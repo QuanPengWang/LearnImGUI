@@ -3,6 +3,8 @@ project(gameDemo)
 INCLUDE_DIRECTORIES(
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}
+  ${CMAKE_SOURCE_DIR}/library/gameData
+  ${CMAKE_SOURCE_DIR}/library/gameWindow
   ${CMAKE_SOURCE_DIR}/library/gameFrame
 )
 
@@ -23,6 +25,8 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
+  gameData
+  gameWindow
   gameFrame
 )
 

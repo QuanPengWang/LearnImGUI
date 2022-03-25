@@ -1,11 +1,11 @@
 #pragma once
 #pragma warning(disable:4251)
-#include "gameFramelibExport.h"
+#include "gameDatalibExport.h"
 #include <vector>
 #include <string>
 
 // virtual class
-class GAMEFRAME_EXPORT baseObject
+class GAMEDATA_EXPORT baseObject
 {
 public:
 	baseObject();
