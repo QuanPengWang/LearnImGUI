@@ -2,18 +2,17 @@
 #pragma warning(disable:4251)
 #include "gameFramelibExport.h"
 #include <string>
+#include <map>
 #include "baseObject.h"
 
 class emotion;
+class action;
 class properties;
 class GAMEFRAME_EXPORT person : public baseObject
 {
 public:
 	person();
 	~person();
-
-	void SetName(const std::string& name);
-	std::string GetName();
 
 	void SetEmotion(emotion* emotion);
 	emotion* GetEmotion();
@@ -24,8 +23,7 @@ public:
 	std::vector<properties*> GetProperties();
 
 protected:
-	std::string m_id;
-	std::string m_name;
 	emotion* m_emotion;
 	std::vector<properties*> m_bag;
+	std::map<baseObject*, action*> m_actions;
 };

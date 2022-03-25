@@ -17,7 +17,7 @@ public:
 	void SetName(const std::string& name);
 	std::string GetName();
 
-private:
+protected:
 	std::string m_id;
 	std::string m_name;
 };

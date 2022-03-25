@@ -1,5 +1,4 @@
 #include "dialogueWindow.h"
-#include "personDefine.h"
 #include "person.h"
 #include "person_npc.h"
 #include "emotion.h"

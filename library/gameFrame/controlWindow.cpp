@@ -1,5 +1,4 @@
 #include "controlWindow.h"
-#include "personDefine.h"
 #include "person.h"
 #include "person_npc.h"
 

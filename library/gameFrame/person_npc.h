@@ -17,5 +17,5 @@ public:
 	action* GetAction(baseObject* obj);
 
 private:
-	std::map<baseObject*, action*> m_actions;
+
 };

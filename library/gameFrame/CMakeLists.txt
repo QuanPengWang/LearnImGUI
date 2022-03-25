@@ -17,7 +17,6 @@ LINK_DIRECTORIES(
 
 set(header_files
   baseObject.h
-  personDefine.h
   person.h
   person_npc.h
   person_player.h
