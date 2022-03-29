@@ -7,3 +7,6 @@
 
 
 1. verson : 0.0.1
+2. gameName: 
+3. gameType:
+
