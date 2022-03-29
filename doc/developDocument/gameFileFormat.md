@@ -6,7 +6,7 @@
    游戏格式使用json 
 
 
-1. verson : 0.0.1
+1. verson : 10000
 2. gameName: 
 3. gameType:
 
