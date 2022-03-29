@@ -1,0 +1,10 @@
+FILE(GLOB Project_Libs ${CMAKE_CURRENT_SOURCE_DIR}/*)
+
+foreach(lib ${Project_Libs})
+  file(RELATIVE_PATH libName ${CMAKE_CURRENT_SOURCE_DIR} ${lib})
+  if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${libName}/CMakeLists.txt)
+	add_subdirectory(${libName})
+	set_property(TARGET ${libName} PROPERTY FOLDER "thirdParty")
+  else()
+  endif()
+endforeach()

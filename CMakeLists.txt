@@ -20,6 +20,10 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Output)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Output)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Output)
 
+# build third party
+add_subdirectory(thirdParty)
+
+# build project
 add_subdirectory(library)
 add_subdirectory(cases)
 add_subdirectory(application)
