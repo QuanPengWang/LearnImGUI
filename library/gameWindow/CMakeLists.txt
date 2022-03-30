@@ -24,6 +24,7 @@ set(header_files
   dialogueWindow.h
   controlWindow.h
   gameInfoWindow.h
+  menuWindow.h
 )
 
 set(source_files
@@ -32,6 +33,7 @@ set(source_files
   dialogueWindow.cpp
   controlWindow.cpp
   gameInfoWindow.cpp
+  menuWindow.cpp
 )
 
 add_library(${PROJECT_NAME} SHARED
