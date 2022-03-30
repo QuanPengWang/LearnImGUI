@@ -14,6 +14,13 @@
     bodyPart: baseObject
 	    001. 
 	
+    bodyCovering: baseObject
+        001. type (鳞片，毛发，粘液，衣物...)
+        002. 保温值
+        003. 防御力
+        004. 覆盖区域
+        005. 裸露区域
+        006. 色情值
 
     person: organismObject
 	    001. emotion（情绪）
@@ -45,7 +52,7 @@
     	002. 接受者
     	003. 作用
     	004. 计数
-    
+
     emotion : baseObject
     	001. 情绪值（整体上来说，0为普通，小于0，则趋向于不好，大于0则趋向于好）
     	002. 描述
