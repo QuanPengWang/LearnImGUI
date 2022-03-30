@@ -2,6 +2,7 @@
 #include "gameApplication.h"
 #include "controlWindow.h"
 #include "dialogueWindow.h"
+#include "gameInfoWindow.h"
 #include "person_npc.h"
 
 // imgui
@@ -90,8 +91,13 @@ gameWindow::gameWindow()
     cWindow->SetPerson("guide", guideNPC);
     cWindow->SetPerson("player", m_player);
     cWindow->SetWindowPosition(0, m_window_height - 400);
-    cWindow->SetWindowSize(m_window_width,  400);
+    cWindow->SetWindowSize(m_window_width * 0.5,  400);
     m_windows.push_back(cWindow);
+
+    gameInfoWindow* gWindow = new gameInfoWindow;
+    gWindow->SetWindowPosition(m_window_width * 0.5, m_window_height - 400);
+    gWindow->SetWindowSize(m_window_width * 0.5, 400);
+    m_windows.push_back(gWindow);
 }
 
 gameWindow::~gameWindow()

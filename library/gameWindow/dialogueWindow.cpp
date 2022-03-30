@@ -2,9 +2,9 @@
 #include "person.h"
 #include "person_npc.h"
 #include "emotion.h"
-#include <imgui.h>
-
 #include "properties.h"
+
+#include <imgui.h>
 
 dialogueWindow::dialogueWindow()
 {

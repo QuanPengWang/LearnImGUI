@@ -17,11 +17,13 @@ public:
 	std::string GetApplicationFilePath();
 	std::string GetApplicationDir();
 
+	std::string GetParam(const int& index);
+
 protected:
 	std::vector<std::string> split(std::string strtem, std::string splitStr);
 
 private:
 	static gameApplication* self;
-	int parmCount = 0;
+	int parmCount;
 	std::vector<std::string> parmVector;
 };

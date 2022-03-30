@@ -1,10 +1,14 @@
 #include "gameApplication.h"
+
+#include <locale>
 gameApplication* gameApplication::self = 0;
 
 gameApplication::gameApplication(int argc, char* argv[])
+	:parmCount(0)
 {
-	parmCount = argc;
+	//std::locale::global(std::locale(""));
 
+	parmCount = argc;
 	for (int i = 0; i < parmCount; i++)
 	{
 		std::string parString = std::string(argv[i]);
@@ -50,6 +54,12 @@ std::string gameApplication::GetApplicationDir()
 	}
 
 	return std::string("");
+}
+
+std::string gameApplication::GetParam(const int& index)
+{
+	if (index < parmCount)
+		return parmVector[index];
 }
 
 std::vector<std::string> gameApplication::split(std::string strtem, std::string splitStr)

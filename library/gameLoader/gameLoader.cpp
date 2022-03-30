@@ -1,6 +1,7 @@
 #include "gameLoader.h"
 
 #include <fstream>
+#include <iostream>
 #include <nlohmann/json.hpp>
 
 class gameLoaderPrivate
@@ -23,7 +24,7 @@ gameLoaderPrivate::~gameLoaderPrivate()
 }
 
 gameLoader::gameLoader()
-	:m_private(new gameLoaderPrivate(this))
+	:m_loadStatus(load_noGameFile), m_private(new gameLoaderPrivate(this))
 {
 
 }
@@ -35,11 +36,32 @@ gameLoader::~gameLoader()
 
 bool gameLoader::LoadGame(const std::string& gameFile)
 {
-	std::ifstream i(gameFile.c_str());
 	m_private->m_gameJson.clear();
-	m_private->m_gameJson << i;
 
-	return (!m_private->m_gameJson.empty());
+	try
+	{
+		std::ifstream i(gameFile.c_str());
+		m_private->m_gameJson << i;
+
+		m_loadStatus = load_success;
+	}
+	catch(...)
+	{
+		m_loadStatus = load_gameFileError;
+		std::cout << "Game Parse Failed !" << std::endl;
+	}
+
+	return (load_success == m_loadStatus);
+}
+
+bool gameLoader::LoadSuccess()
+{
+	return (load_success == m_loadStatus);
+}
+
+loadStatus gameLoader::GetLoadStatus()
+{
+	return m_loadStatus;
 }
 
 int gameLoader::GetGameVersion()

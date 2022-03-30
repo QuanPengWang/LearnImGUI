@@ -11,6 +11,7 @@ INCLUDE_DIRECTORIES(
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui/examples/libs/glfw/include
   ${CMAKE_SOURCE_DIR}/library/gameData
   ${CMAKE_SOURCE_DIR}/library/gameFrame
+  ${CMAKE_SOURCE_DIR}/library/gameLoader
 )
 
 LINK_DIRECTORIES(
@@ -22,6 +23,7 @@ set(header_files
   baseWindow.h
   dialogueWindow.h
   controlWindow.h
+  gameInfoWindow.h
 )
 
 set(source_files
@@ -29,6 +31,7 @@ set(source_files
   baseWindow.cpp
   dialogueWindow.cpp
   controlWindow.cpp
+  gameInfoWindow.cpp
 )
 
 add_library(${PROJECT_NAME} SHARED
@@ -42,4 +45,5 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
   imgui
   gameData
   gameFrame
+  gameLoader
 )
