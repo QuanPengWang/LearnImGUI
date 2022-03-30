@@ -6,6 +6,7 @@ INCLUDE_DIRECTORIES(
   ${CMAKE_SOURCE_DIR}/library/gameData
   ${CMAKE_SOURCE_DIR}/library/gameWindow
   ${CMAKE_SOURCE_DIR}/library/gameFrame
+  ${CMAKE_SOURCE_DIR}/library/gameLoader
 )
 
 LINK_DIRECTORIES(
@@ -28,6 +29,7 @@ target_link_libraries(${PROJECT_NAME}
   gameData
   gameWindow
   gameFrame
+  gameLoader
 )
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")

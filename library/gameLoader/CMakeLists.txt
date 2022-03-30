@@ -6,7 +6,7 @@ add_definitions("-D ${LibraryName}_EXPORTS")
 INCLUDE_DIRECTORIES(
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}
-  ${CMAKE_SOURCE_DIR}/thirdParty/json
+  ${CMAKE_SOURCE_DIR}/thirdParty/nlohmann_json/include
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui/backends
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui/examples/libs/glfw/include
