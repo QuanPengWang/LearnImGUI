@@ -9,6 +9,7 @@ INCLUDE_DIRECTORIES(
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui/backends
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui/examples/libs/glfw/include
+  ${CMAKE_SOURCE_DIR}/library/gameLoader
 )
 
 LINK_DIRECTORIES(
@@ -32,4 +33,5 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
   opengl32
   glfw3
   imgui
+  gameLoader
 )

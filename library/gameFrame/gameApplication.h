@@ -6,6 +6,8 @@
 
 #define globalApp gameApplication::instance()
 
+class gameLoader;
+
 class GAMEFRAME_EXPORT gameApplication
 {
 public:
@@ -18,6 +20,9 @@ public:
 	std::string GetApplicationDir();
 
 	std::string GetParam(const int& index);
+	bool LoadGame();
+
+	gameLoader* GetGameLoader() const;
 
 protected:
 	std::vector<std::string> split(std::string strtem, std::string splitStr);
@@ -26,4 +31,5 @@ private:
 	static gameApplication* self;
 	int parmCount;
 	std::vector<std::string> parmVector;
+	gameLoader* m_loader;
 };

@@ -20,6 +20,7 @@
 // Will drag system OpenGL headers
 #include <GLFW/glfw3.h> 
 
+#include "gameLoader.h"
 #include "person_player.h"
 #include "properties.h"
 
@@ -69,6 +70,12 @@ gameWindow::gameWindow()
 
     //ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
     m_clear_color = new ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+
+    gameLoader* loader = globalApp->GetGameLoader();
+    if(loader && loader->LoadSuccess())
+    {
+	    
+    }
 
     person_npc* guideNPC = new person_npc;
     guideNPC->SetName(u8"游戏初始向导");

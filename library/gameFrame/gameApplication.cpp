@@ -1,10 +1,11 @@
 #include "gameApplication.h"
-
+#include "gameLoader.h"
 #include <locale>
+
 gameApplication* gameApplication::self = 0;
 
 gameApplication::gameApplication(int argc, char* argv[])
-	:parmCount(0)
+	:parmCount(0), m_loader(new gameLoader)
 {
 	//std::locale::global(std::locale(""));
 
@@ -60,6 +61,24 @@ std::string gameApplication::GetParam(const int& index)
 {
 	if (index < parmCount)
 		return parmVector[index];
+
+	return std::string();
+}
+
+bool gameApplication::LoadGame()
+{
+	if(!GetParam(1).empty())
+	{
+		m_loader->LoadGame(GetParam(1));
+		return m_loader->LoadSuccess();
+	}
+
+	return false;
+}
+
+gameLoader* gameApplication::GetGameLoader() const
+{
+	return m_loader;
 }
 
 std::vector<std::string> gameApplication::split(std::string strtem, std::string splitStr)

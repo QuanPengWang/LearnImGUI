@@ -28,6 +28,8 @@ public:
 	std::string GetGameName();
 	std::string GetGameType();
 
+
+
 private:
 	loadStatus m_loadStatus;
 	gameLoaderPrivate* m_private;

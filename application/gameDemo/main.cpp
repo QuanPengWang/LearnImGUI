@@ -8,6 +8,7 @@
 int main(int argc, char* argv[])
 {
 	gameApplication app(argc, argv);
+	app.LoadGame();
 
 	gameWindow game;
 	game.Run();
