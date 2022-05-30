@@ -85,9 +85,9 @@ std::vector<std::string> gameApplication::split(std::string strtem, std::string 
 {
 	std::vector<std::string> strvec;
 
-	std::string::size_type pos1, pos2;
-	pos2 = strtem.find(splitStr);
-	pos1 = 0;
+	std::string::size_type pos1 = 0,
+		pos2 = strtem.find(splitStr);
+
 	while (std::string::npos != pos2)
 	{
 		strvec.push_back(strtem.substr(pos1, pos2 - pos1));
