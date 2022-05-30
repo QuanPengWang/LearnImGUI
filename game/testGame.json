@@ -1,0 +1,20 @@
+{
+	"verson":10000,
+	"gameName": "MyGame",
+	"gameType": "角色扮演类",
+	"content":{
+		"player":{
+			"name":"玩家"
+		},
+		"NPC":{
+			"guide":{
+				"name":"游戏初始向导",
+				"properties":{
+					"book":{
+						"name":"书"
+					}
+				}
+			}
+		}
+	}
+}
