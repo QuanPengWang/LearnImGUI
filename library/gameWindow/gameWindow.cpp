@@ -92,24 +92,24 @@ gameWindow::gameWindow()
     dWindow->SetPerson("guide", guideNPC);
     dWindow->SetPerson("player", m_player);
     dWindow->SetWindowPosition(0, 0);
-    dWindow->SetWindowSize(m_window_width, m_window_height - 400);
+    dWindow->SetWindowSize(m_window_width, m_window_height * 0.5);
     m_windows.push_back(dWindow);
 
     controlWindow* cWindow = new controlWindow;
     cWindow->SetPerson("guide", guideNPC);
     cWindow->SetPerson("player", m_player);
-    cWindow->SetWindowPosition(0, m_window_height - 600);
-    cWindow->SetWindowSize(m_window_width * 0.5,  500);
+    cWindow->SetWindowPosition(0, m_window_height * 0.5);
+    cWindow->SetWindowSize(m_window_width * 0.5, m_window_height * 0.40625);
     m_windows.push_back(cWindow);
 
-    gameInfoWindow* gWindow = new gameInfoWindow;
-    gWindow->SetWindowPosition(m_window_width * 0.5, m_window_height - 600);
-    gWindow->SetWindowSize(m_window_width * 0.5, 600);
-    m_windows.push_back(gWindow);
+    gameInfoWindow* iWindow = new gameInfoWindow;
+    iWindow->SetWindowPosition(m_window_width * 0.5, m_window_height * 0.5);
+    iWindow->SetWindowSize(m_window_width * 0.5, m_window_height * 0.5);
+    m_windows.push_back(iWindow);
 
     menuWindow* mWindow = new menuWindow;
-    mWindow->SetWindowPosition(0, m_window_height - 100);
-    mWindow->SetWindowSize(m_window_width * 0.5, 100);
+    mWindow->SetWindowPosition(0, m_window_height * 0.90625);
+    mWindow->SetWindowSize(m_window_width * 0.5, m_window_height * 0.09375);
     m_windows.push_back(mWindow);
 }
 	
