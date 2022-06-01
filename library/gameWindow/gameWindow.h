@@ -26,7 +26,7 @@ private:
 
 	person* m_player;
 	std::map<std::string, person*> m_npcs;
-	std::vector<baseWindow*> m_windows;
+	std::map<std::string, baseWindow*> m_windows;
 
 	ImVec4* m_clear_color;
 };

@@ -18,11 +18,14 @@
 #include <iostream>
 
 // Will drag system OpenGL headers
+#include <functional>
 #include <GLFW/glfw3.h> 
 
 #include "gameLoader.h"
 #include "person_player.h"
 #include "properties.h"
+
+typedef std::function<void(GLFWwindow*, int, int)> windowSizeFunc;
 
 gameWindow::gameWindow()
 	:m_glfw_initFlag(false), m_window(nullptr)
@@ -40,6 +43,8 @@ gameWindow::gameWindow()
     // full screen
     //GLFWwindow* window = glfwCreateWindow(1280, 720,
     //    u8"简单的游戏框架", glfwGetPrimaryMonitor(), nullptr);
+
+    glfwSetWindowUserPointer(m_window, this);
 
     if (!m_window) return;
 
@@ -93,24 +98,58 @@ gameWindow::gameWindow()
     dWindow->SetPerson("player", m_player);
     dWindow->SetWindowPosition(0, 0);
     dWindow->SetWindowSize(m_window_width, m_window_height * 0.5);
-    m_windows.push_back(dWindow);
+    m_windows["dialogue"] = dWindow;
 
     controlWindow* cWindow = new controlWindow;
     cWindow->SetPerson("guide", guideNPC);
     cWindow->SetPerson("player", m_player);
     cWindow->SetWindowPosition(0, m_window_height * 0.5);
     cWindow->SetWindowSize(m_window_width * 0.5, m_window_height * 0.40625);
-    m_windows.push_back(cWindow);
+    m_windows["control"] = cWindow;
 
     gameInfoWindow* iWindow = new gameInfoWindow;
     iWindow->SetWindowPosition(m_window_width * 0.5, m_window_height * 0.5);
     iWindow->SetWindowSize(m_window_width * 0.5, m_window_height * 0.5);
-    m_windows.push_back(iWindow);
+    m_windows["info"] = iWindow;
 
     menuWindow* mWindow = new menuWindow;
     mWindow->SetWindowPosition(0, m_window_height * 0.90625);
     mWindow->SetWindowSize(m_window_width * 0.5, m_window_height * 0.09375);
-    m_windows.push_back(mWindow);
+    m_windows["menu"] = mWindow;
+
+    glfwSetWindowSizeCallback(m_window, [](GLFWwindow* window, int width, int height)
+        {
+            gameWindow* mainWindow = static_cast<gameWindow*>(glfwGetWindowUserPointer(window));
+            if (!mainWindow) return;
+
+            mainWindow->m_window_width = width;
+            mainWindow->m_window_height = height;
+
+			if(mainWindow->m_windows.find("dialogue") != mainWindow->m_windows.end())
+			{
+                mainWindow->m_windows["dialogue"]->SetWindowPosition(0, 0);
+                mainWindow->m_windows["dialogue"]->SetWindowSize(mainWindow->m_window_width, mainWindow->m_window_height * 0.5);
+			}
+
+            if (mainWindow->m_windows.find("control") != mainWindow->m_windows.end())
+            {
+                mainWindow->m_windows["control"]->SetWindowPosition(0, mainWindow->m_window_height * 0.5);
+                mainWindow->m_windows["control"]->SetWindowSize(mainWindow->m_window_width * 0.5, mainWindow->m_window_height * 0.40625);
+            }
+
+            if (mainWindow->m_windows.find("info") != mainWindow->m_windows.end())
+            {
+                mainWindow->m_windows["info"]->SetWindowPosition(mainWindow->m_window_width * 0.5, mainWindow->m_window_height * 0.5);
+                mainWindow->m_windows["info"]->SetWindowSize(mainWindow->m_window_width * 0.5, mainWindow->m_window_height * 0.5);
+            }
+
+            if (mainWindow->m_windows.find("menu") != mainWindow->m_windows.end())
+            {
+                mainWindow->m_windows["menu"]->SetWindowPosition(0, mainWindow->m_window_height * 0.90625);
+                mainWindow->m_windows["menu"]->SetWindowSize(mainWindow->m_window_width * 0.5, mainWindow->m_window_height * 0.09375);
+            }
+
+        });
 }
 	
 gameWindow::~gameWindow()
@@ -129,10 +168,10 @@ bool gameWindow::Run()
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        for(int i = 0; i < m_windows.size(); i++)
+        for(auto it = m_windows.begin(); it != m_windows.end(); it++)
         {
-	        if(!m_windows[i]) continue;
-            m_windows[i]->Render();
+	        if(!it->second) continue;
+            it->second->Render();
         }
 
         // Rendering
