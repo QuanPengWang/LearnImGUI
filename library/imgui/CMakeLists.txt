@@ -10,7 +10,7 @@ INCLUDE_DIRECTORIES(
 )
 
 LINK_DIRECTORIES(
-  ${CMAKE_SOURCE_DIR}/thirdParty/imgui/examples/libs/glfw/lib-vc2010-64/
+  #${CMAKE_SOURCE_DIR}/thirdParty/imgui/examples/libs/glfw/lib-vc2010-64/
 )
 
 set(header_files
@@ -28,7 +28,7 @@ set(source_files
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui/backends/imgui_impl_opengl3.cpp
 )
 
-add_library(${PROJECT_NAME} SHARED
+add_library(${PROJECT_NAME}
   ${header_files}
   ${source_files}
 )

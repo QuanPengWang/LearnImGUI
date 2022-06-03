@@ -17,7 +17,7 @@ set(CMAKE_MODULE_PATH
 option(WithConsole "Show Console" ON)
 
 find_package(OpenGL REQUIRED)
-find_package(glfw3 REQUIRED)
+#find_package(glfw3 REQUIRED)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Output)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Output)
