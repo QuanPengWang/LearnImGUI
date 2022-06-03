@@ -70,8 +70,13 @@ gameWindow::gameWindow()
     ImGui_ImplOpenGL3_Init(glsl_version);
 
     // GetGlyphRangesChineseSimplifiedCommon 加载的中文字符集不全
+    #ifdef _WIN32
     io.Fonts->AddFontFromFileTTF("c:/windows/fonts/simhei.TTF", 18.0f,
         nullptr, io.Fonts->GetGlyphRangesChineseFull());
+    #else
+    io.Fonts->AddFontFromFileTTF("./SourceHanSansSC-VF.ttf", 18.0f,
+        nullptr, io.Fonts->GetGlyphRangesChineseFull());
+    #endif
 
     //ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
     m_clear_color = new ImVec4(0.45f, 0.55f, 0.60f, 1.00f);

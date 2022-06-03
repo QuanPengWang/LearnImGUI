@@ -1,6 +1,7 @@
 #ifndef __@LIBRARY_HEADER_PREFIX@Export_h__
 #define __@LIBRARY_HEADER_PREFIX@Export_h__
 
+#if defined _WIN32
 #  if defined(@LIBRARY_LIBNAME@_EXPORTS)
 #    define @LIBRARY_EXPORT_DIRECTIVE@ __declspec(dllexport)
 #  else
@@ -9,6 +10,17 @@
 
 #if !defined(@LIBRARY_EXPORT_DIRECTIVE@)
 #    define @LIBRARY_EXPORT_DIRECTIVE@ __declspec(dllexport)
+#endif
+#else
+  #if __GUNC__ >= 4
+    #  if defined(@LIBRARY_LIBNAME@_EXPORTS)
+      #define @LIBRARY_EXPORT_DIRECTIVE@ __attribute__ ((visibility ("default")))
+    #else
+      #define @LIBRARY_EXPORT_DIRECTIVE@ __attribute__ ((visibility ("hidden")))
+    #endif
+  #else
+    #define @LIBRARY_EXPORT_DIRECTIVE@
+  #endif
 #endif
 
 #endif

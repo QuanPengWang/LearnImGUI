@@ -6,6 +6,7 @@ add_definitions("-D ${LibraryName}_EXPORTS")
 INCLUDE_DIRECTORIES(
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}
+  ${OPENGL_INCLUDE_DIR}
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui/backends
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui/examples/libs/glfw/include
@@ -42,8 +43,9 @@ add_library(${PROJECT_NAME} SHARED
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
-  opengl32
-  glfw3
+  #opengl32
+  ${OPENGL_LIBRARY}
+  glfw
   imgui
   gameData
   gameFrame

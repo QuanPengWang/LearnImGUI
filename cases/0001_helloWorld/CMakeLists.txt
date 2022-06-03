@@ -3,6 +3,7 @@ project(0001_helloWorld)
 INCLUDE_DIRECTORIES(
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}
+  ${OPENGL_INCLUDE_DIR}
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui/backends
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui/examples/libs/glfw/include
@@ -25,8 +26,9 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
-  opengl32
-  glfw3
+  #opengl32
+  ${OPENGL_LIBRARY}
+  glfw
   imgui
 )
 
