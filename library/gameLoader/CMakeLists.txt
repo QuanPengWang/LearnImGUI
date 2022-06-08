@@ -32,9 +32,9 @@ add_library(${PROJECT_NAME} SHARED
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
-  #opengl32
-  #glfw3
-  #imgui
+  ${OPENGL_LIBRARY}
+  glfw
+  imgui
   #gameData
   #gameFrame
 )

@@ -28,16 +28,14 @@ set(source_files
   ${CMAKE_SOURCE_DIR}/thirdParty/imgui/backends/imgui_impl_opengl3.cpp
 )
 
-add_library(${PROJECT_NAME}
+add_library(${PROJECT_NAME} STATIC
   ${header_files}
   ${source_files}
 )
 
 target_link_libraries(${PROJECT_NAME}
-  #opengl32
   ${OPENGL_LIBRARY}
   glfw
-  #glfw-3.3.4_1
 )
 
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")

@@ -31,7 +31,6 @@ add_library(${PROJECT_NAME} SHARED
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
-  #opengl32
   ${OPENGL_LIBRARY}
   glfw
   imgui
