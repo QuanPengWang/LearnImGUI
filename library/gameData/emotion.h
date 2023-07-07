@@ -1,3 +1,11 @@
+/****************************************************************************
+* emotion 情绪
+* 当其 value < 0 时，代表情绪不好
+* 当其 value == 0 时，代表情绪平稳
+* 当其 value > 0 时，代表情绪好
+* m_description，用来作为描述情绪的字段
+****************************************************************************/
+
 #pragma once
 #pragma warning(disable:4251)
 #include "gameDatalibExport.h"
@@ -19,8 +27,6 @@ protected:
 	void CheckEmotion();
 
 protected:
-	// 整体上来讲，id < 0 ,不好的心情
-	// 0 < id ,好心情
 	double m_value;
 	std::string m_description;
 };
