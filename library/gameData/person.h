@@ -10,12 +10,12 @@
 #include "gameDatalibExport.h"
 #include <string>
 #include <map>
-#include "baseObject.h"
+#include "organism.h"
 
 class emotion;
 class action;
 class properties;
-class GAMEDATA_EXPORT person : public baseObject
+class GAMEDATA_EXPORT person : public organism
 {
 public:
 	person();

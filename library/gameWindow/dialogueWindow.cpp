@@ -1,10 +1,14 @@
 #include "dialogueWindow.h"
+#include "organ.h"
+#include "organism.h"
 #include "person.h"
 #include "person_npc.h"
 #include "emotion.h"
 #include "properties.h"
 
 #include <imgui.h>
+#include <iostream>
+#include <map>
 
 dialogueWindow::dialogueWindow()
 {
@@ -55,6 +59,15 @@ void dialogueWindow::Render()
     for(auto person = m_persons.begin(); person != m_persons.end(); person++)
     {
         person_npc* npc = static_cast<person_npc*>(person->second);
+
+        std::map<std::string, organ*> organs = npc->GetOrgans();
+        for (auto it = organs.begin(); it != organs.end(); it++)
+        {
+            if (!it->second) continue;
+            std::cout << "Get Organ : " << it->second->GetName() << std::endl;
+            //std::cout << "Get Organ : " << it->first << std::endl;
+        }
+
         if (npc)
         {
             ImGui::Text(npc->GetWord().c_str());

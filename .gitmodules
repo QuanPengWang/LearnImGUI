@@ -10,3 +10,6 @@
 [submodule "thirdParty/glfw"]
 	path = thirdParty/glfw
 	url = https://github.com/glfw/glfw.git
+[submodule "thirdParty/stduuid"]
+	path = thirdParty/stduuid
+	url = https://github.com/mariusbancila/stduuid.git
