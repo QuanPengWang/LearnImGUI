@@ -60,13 +60,12 @@ void dialogueWindow::Render()
     {
         person_npc* npc = static_cast<person_npc*>(person->second);
 
-        std::map<std::string, organ*> organs = npc->GetOrgans();
-        for (auto it = organs.begin(); it != organs.end(); it++)
-        {
-            if (!it->second) continue;
-            std::cout << "Get Organ : " << it->second->GetName() << std::endl;
-            //std::cout << "Get Organ : " << it->first << std::endl;
-        }
+        //std::map<uuids::uuid, organ*> organs = npc->GetOrgans();
+        //for (auto it = organs.begin(); it != organs.end(); it++)
+        //{
+        //    if (!it->second) continue;
+        //    std::cout << "Get Organ : " << it->second->GetName() << std::endl;
+        //}
 
         if (npc)
         {

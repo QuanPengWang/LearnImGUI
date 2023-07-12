@@ -7,6 +7,9 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
   add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
 endif()
 
+# 将 C++ 标准设置为 C++ 17
+set(CMAKE_CXX_STANDARD 17)
+
 set_property (GLOBAL PROPERTY USE_FOLDERS ON)
 
 set(CMAKE_MODULE_PATH

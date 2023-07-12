@@ -1,6 +1,6 @@
 #include "organism.h"
 
-std::map<std::string, organ*> organism::GetOrgans()
+std::map<uuids::uuid, organ*> organism::GetOrgans()
 {
 	return m_organs;
 }
