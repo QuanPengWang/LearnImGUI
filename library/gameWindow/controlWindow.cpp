@@ -7,6 +7,9 @@
 
 #include "action_greetings.h"
 
+const float f_bWidth = 100;
+const float f_bHeight = 30;
+
 controlWindow::controlWindow()
 {
 }
@@ -50,7 +53,6 @@ void controlWindow::Render()
     ImGui::PushStyleColor(ImGuiCol_WindowBg,
         ImVec4(m_backgroundColor[0], m_backgroundColor[1], m_backgroundColor[2], m_backgroundColor[3]));
 
-
     ImGui::Begin(u8"操控窗口", nullptr, 
         ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
     //ImGui::Text(u8"游戏操控窗口");
@@ -68,9 +70,9 @@ void controlWindow::Render()
             ImGuiWindow* button = nullptr;
 
             button = ImGui::GetCurrentWindow();
-            button->DC.CursorPos.x = m_windowSize[0] - 100 * (++count);
+            button->DC.CursorPos.x = m_windowSize[0] - f_bWidth * (++count);
 
-            if (ImGui::Button(act->GetName().c_str(), ImVec2(100, 30)))
+            if (ImGui::Button(act->GetName().c_str(), ImVec2(f_bWidth, f_bHeight)))
             {
                 for (auto p = m_persons.begin(); p != m_persons.end(); p++)
                 {
