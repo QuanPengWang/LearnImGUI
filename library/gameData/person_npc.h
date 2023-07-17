@@ -13,9 +13,6 @@ public:
 
 	std::string GetWord() override;
 
-	void DoAction(action* act);
-	action* GetAction(baseObject* obj);
-
 private:
 
 };

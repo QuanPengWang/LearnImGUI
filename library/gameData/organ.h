@@ -16,12 +16,12 @@ public:
 	~organ();
 
 	bool AddChildOrgan(organ* o);
-	organ* GetChildOrgan(const std::string& name);
+	organ* GetChildOrgan(const uuids::uuid& uid);
 
 	void SetDescription(const std::string& des);
 	std::string GetDescription() const;
 
 protected:
 	std::string m_des;
-	std::map<std::string, organ*> m_childenOrgans;
+	std::map<uuids::uuid, organ*> m_childenOrgans;
 };

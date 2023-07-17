@@ -48,3 +48,13 @@ std::string baseObject::GetName()
 {
 	return m_name;
 }
+
+std::map<uuids::uuid, action*> baseObject::GetInitiatives()
+{
+	return m_initiatives;
+}
+
+std::map<uuids::uuid, action*> baseObject::GetActionables()
+{
+	return m_actionables;
+}

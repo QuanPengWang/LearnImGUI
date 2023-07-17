@@ -55,40 +55,36 @@ void controlWindow::Render()
         ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
     //ImGui::Text(u8"游戏操控窗口");
 
-    for(auto person = m_persons.begin(); person != m_persons.end(); person++)
+    if (m_player)
     {
-        person_npc* npc = static_cast<person_npc*>(person->second);
-        if (npc)
+        std::map<uuids::uuid, action*> actions = m_player->GetInitiatives();
+
+        int count = 0;
+        for (auto a = actions.begin(); a != actions.end(); a++)
         {
+            action* act = a->second;
+            if (!act) continue;
+
             ImGuiWindow* button = nullptr;
 
             button = ImGui::GetCurrentWindow();
-            button->DC.CursorPos.x = m_windowSize[0] - 100;
-            if (ImGui::Button(u8"打招呼", ImVec2(100, 30)))
+            button->DC.CursorPos.x = m_windowSize[0] - 100 * (++count);
+
+            if (ImGui::Button(act->GetName().c_str(), ImVec2(100, 30)))
             {
-                //SetCursorPos(windowWidth - 100, 0);
-                //npc->DoAction(u8"前进");
-                //action_greetings* greeting = new action_greetings;
-                //greeting->SetObject(npc);
-                //greeting->DoAction();
-                //npc->GetAction()
-
-                action_greetings* greeting = static_cast<action_greetings*>(npc->GetAction(m_player));
-                if(!greeting)
+                for (auto p = m_persons.begin(); p != m_persons.end(); p++)
                 {
-                    greeting = new action_greetings;
-                    greeting->SetObject(npc);
-                    greeting->SetSubject(m_player);
-                    
-                }
+                    person* per = p->second;
+                    if (!per) continue;
 
-                //greeting->DoAction();
-                npc->DoAction(greeting);
+                    act->SetObject(per);
+                    act->SetSubject(m_player);
+
+                    per->DoAction(act);
+                }
             }
         }
     }
-
-    
 
     ImGui::PopStyleColor();
     ImGui::End();

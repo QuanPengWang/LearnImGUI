@@ -9,9 +9,11 @@ public:
 	action();
 	~action();
 
+	// 动作对象
 	void SetSubject(baseObject* sub);
 	baseObject* GetSubject();
 
+	// 动作发起者
 	void SetObject(baseObject* obj);
 	baseObject* GetObject();
 

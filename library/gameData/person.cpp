@@ -1,6 +1,7 @@
 #include "person.h"
 #include "emotion.h"
 #include "properties.h"
+#include <action_greetings.h>
 
 person::person()
 	:m_emotion(new emotion)
@@ -100,6 +101,14 @@ person::person()
 	m_organs[leg->GetID()] = leg;
 	m_organs[foot->GetID()] = foot;
 	m_organs[toe->GetID()] = toe;
+
+	// 主动性动作
+	action_greetings* greeting = new action_greetings;
+	m_initiatives[greeting->GetID()] = greeting;
+
+	// 被动性动作
+	//action_greetings* greeting = new action_greetings;
+	//m_actionables[greeting->GetID()] = greeting;
 }
 
 person::~person()

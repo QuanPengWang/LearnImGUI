@@ -17,10 +17,10 @@ bool organ::AddChildOrgan(organ* o)
 {
 	if (o)
 	{
-		std::string name = o->GetName();
-		if (!name.empty() && m_childenOrgans.find(name) != m_childenOrgans.end())
+		uuids::uuid uid = o->GetID();
+		if (!uid.is_nil() && m_childenOrgans.find(uid) != m_childenOrgans.end())
 		{
-			m_childenOrgans[name] = o;
+			m_childenOrgans[uid] = o;
 			return true;
 		}
 	}
@@ -28,12 +28,12 @@ bool organ::AddChildOrgan(organ* o)
 	return false;
 }
 
-organ* organ::GetChildOrgan(const std::string& name)
+organ* organ::GetChildOrgan(const uuids::uuid& uid)
 {
 	organ* result = nullptr;
 
-	if (m_childenOrgans.find(name) != m_childenOrgans.end())
-		result = m_childenOrgans[name];
+	if (m_childenOrgans.find(uid) != m_childenOrgans.end())
+		result = m_childenOrgans[uid];
 
 	return result;
 }

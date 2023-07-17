@@ -13,12 +13,6 @@ public:
 
 	std::string GetWord() override;
 
-	//void DoAction(const std::string& action);
-	//std::string GetAction();
-
-	void DoAction(action* act);
-	action* GetAction(baseObject* obj);
-
 private:
 
 };

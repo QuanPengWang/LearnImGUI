@@ -32,5 +32,4 @@ public:
 protected:
 	emotion* m_emotion;
 	std::vector<properties*> m_bag;
-	std::map<baseObject*, action*> m_actions;
 };

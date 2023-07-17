@@ -5,7 +5,7 @@
 
 action_greetings::action_greetings()
 {
-
+	SetName(u8"打招呼");
 }
 
 action_greetings::~action_greetings()
