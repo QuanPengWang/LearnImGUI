@@ -5,7 +5,7 @@ void organism::DoAction(action* act)
 {
 	if (!act) return;
 
-	baseObject* sub = act->GetSubject();
+	substance* sub = act->GetSubject();
 	if (!sub)
 		sub = this;
 
@@ -19,7 +19,7 @@ void organism::DoAction(action* act)
 	m_actions[sub] = acts;
 }
 
-std::vector<action*> organism::GetActions(baseObject* obj)
+std::vector<action*> organism::GetActions(substance* obj)
 {
 	if (m_actions.find(obj) != m_actions.end())
 		return m_actions[obj];

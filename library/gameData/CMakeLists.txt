@@ -19,6 +19,7 @@ LINK_DIRECTORIES(
 set(header_files
   uuid.h
   baseObject.h
+  substance.h
   organism.h
   organ.h
   person.h
@@ -32,6 +33,7 @@ set(header_files
 
 set(source_files
   baseObject.cpp
+  substance.cpp
   organism.cpp
   organ.cpp
   person.cpp

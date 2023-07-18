@@ -9,22 +9,22 @@ action::~action()
 {
 }
 
-void action::SetSubject(baseObject* sub)
+void action::SetSubject(substance* sub)
 {
 	m_subject = sub;
 }
 
-baseObject* action::GetSubject()
+substance* action::GetSubject()
 {
 	return m_subject;
 }
 
-void action::SetObject(baseObject* obj)
+void action::SetObject(substance* obj)
 {
 	m_object = obj;
 }
 
-baseObject* action::GetObject()
+substance* action::GetObject()
 {
 	return m_object;
 }
