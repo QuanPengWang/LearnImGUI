@@ -20,6 +20,7 @@ set(header_files
   uuid.h
   baseObject.h
   substance.h
+  allSubstance.h
   organism.h
   organ.h
   person.h
@@ -34,6 +35,7 @@ set(header_files
 set(source_files
   baseObject.cpp
   substance.cpp
+  allSubstance.cpp
   organism.cpp
   organ.cpp
   person.cpp

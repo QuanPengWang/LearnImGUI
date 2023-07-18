@@ -30,6 +30,15 @@ protected:
 	uuids::uuid m_id;
 	std::string m_name;
 
-	std::map<uuids::uuid, action*> m_initiatives;		// 主动性动作
-	std::map<uuids::uuid, action*> m_actionables;		// 可被动动作
+	/// <summary>
+	/// 主动性动作
+	/// 这里指的是可以使用的主动性动作
+	/// </summary>
+	std::map<uuids::uuid, action*> m_initiatives;
+
+	/// <summary>
+	/// 可被动动作
+	/// 这里指的是可以使用的被动性动作
+	/// </summary>
+	std::map<uuids::uuid, action*> m_actionables;
 };
